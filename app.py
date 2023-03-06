@@ -8,3 +8,8 @@ def mingchin():
     return render_template('mingchin.html')
 
 print("hello")
+@app.route('/HongEn')
+def HongEn():
+    return render_template('HongEn.html')
+
+print("hello")
