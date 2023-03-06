@@ -6,3 +6,5 @@ app = Flask(__name__)
 @app.route('/mingchin')
 def mingchin():
     return render_template('mingchin.html')
+
+print("hello")
