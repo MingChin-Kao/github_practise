@@ -1,0 +1,11 @@
+.welcomeParent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+    width: 100%;
+    height: 100%;
+}
+.welcome{
+    width: 100%;
+}
