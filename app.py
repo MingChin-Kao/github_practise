@@ -13,7 +13,7 @@ def mingchin():
 @app.route('/HongEn')
 def index():
     return render_template('index.html')
-set FLASK_APP=app.py
+
 
 print("hello")
 
