@@ -9,9 +9,13 @@ print("hello")
 def mingchin():
     return render_template('mingchin.html')
 
+
 @app.route('/HongEn')
-def HongEn():
-    return render_template('HongEn.html')
+def index():
+    return render_template('index.html')
+
+
+print("hello")
 
 @app.route('/ChiaHong')
 def ChiaHong():
