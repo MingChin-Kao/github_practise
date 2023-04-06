@@ -2,6 +2,8 @@
   <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ url_for('static',    filename='/template.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',    filename='/index.js') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   </head>
   <body><div class="area"></div><nav class="main-menu">
             <ul>
@@ -94,5 +96,257 @@
                 </li>  
             </ul>
         </nav>
-  </body>
+  
+  <style type="text/css">
+.tg  {border-collapse:collapse;border-color:#aaa;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#aaa;border-style:solid;border-width:0px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f38630;border-color:#aaa;border-style:solid;border-width:0px;color:#fff;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style><div style="top:1px;left:300px;position:absolute;">
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">年度</th>
+    <th class="tg-0lax">縣市別</th>
+    <th class="tg-0lax">包制戶數</th>
+    <th class="tg-0lax">包制售電量</th>
+    <th class="tg-0lax">表制戶數</th>
+    <th class="tg-0lax">表制售電量</th>
+    <th class="tg-0lax">LED戶數</th>
+    <th class="tg-0lax">LED售電量</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">新北市</td>
+    <td class="tg-0lax">292</td>
+    <td class="tg-0lax">29,888,204</td>
+    <td class="tg-0lax">46</td>
+    <td class="tg-0lax">481,699</td>
+    <td class="tg-0lax">268</td>
+    <td class="tg-0lax">99,534,808</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">台北市</td>
+    <td class="tg-0lax">234</td>
+    <td class="tg-0lax">25,956,723</td>
+    <td class="tg-0lax">26</td>
+    <td class="tg-0lax">1,099,696</td>
+    <td class="tg-0lax">383</td>
+    <td class="tg-0lax">60,029,885</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">桃園市</td>
+    <td class="tg-0lax">165</td>
+    <td class="tg-0lax">41,796,940</td>
+    <td class="tg-0lax">113</td>
+    <td class="tg-0lax">1,191,373</td>
+    <td class="tg-0lax">81</td>
+    <td class="tg-0lax">51,966,422</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">台中市</td>
+    <td class="tg-0lax">360</td>
+    <td class="tg-0lax">144,401,691</td>
+    <td class="tg-0lax">99</td>
+    <td class="tg-0lax">4,233,047</td>
+    <td class="tg-0lax">157</td>
+    <td class="tg-0lax">58,814,636</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">台南市</td>
+    <td class="tg-0lax">545</td>
+    <td class="tg-0lax">134,189,552</td>
+    <td class="tg-0lax">21</td>
+    <td class="tg-0lax">209,608</td>
+    <td class="tg-0lax">339</td>
+    <td class="tg-0lax">57,074,338</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">高雄市</td>
+    <td class="tg-0lax">182</td>
+    <td class="tg-0lax">96,880,066</td>
+    <td class="tg-0lax">126</td>
+    <td class="tg-0lax">1,176,219</td>
+    <td class="tg-0lax">176</td>
+    <td class="tg-0lax">76,163,391</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">宜蘭縣</td>
+    <td class="tg-0lax">135</td>
+    <td class="tg-0lax">55,374,993</td>
+    <td class="tg-0lax">18</td>
+    <td class="tg-0lax">152,728</td>
+    <td class="tg-0lax">62</td>
+    <td class="tg-0lax">6,849,782</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">新竹縣</td>
+    <td class="tg-0lax">152</td>
+    <td class="tg-0lax">47,679,622</td>
+    <td class="tg-0lax">16</td>
+    <td class="tg-0lax">117,201</td>
+    <td class="tg-0lax">106</td>
+    <td class="tg-0lax">12,190,547</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">苗栗縣</td>
+    <td class="tg-0lax">159</td>
+    <td class="tg-0lax">41,807,945</td>
+    <td class="tg-0lax">32</td>
+    <td class="tg-0lax">1,982,521</td>
+    <td class="tg-0lax">85</td>
+    <td class="tg-0lax">14,012,380</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">彰化縣</td>
+    <td class="tg-0lax">460</td>
+    <td class="tg-0lax">52,230,987</td>
+    <td class="tg-0lax">14</td>
+    <td class="tg-0lax">74,967</td>
+    <td class="tg-0lax">412</td>
+    <td class="tg-0lax">61,745,731</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">南投縣</td>
+    <td class="tg-0lax">151</td>
+    <td class="tg-0lax">40,374,657</td>
+    <td class="tg-0lax">45</td>
+    <td class="tg-0lax">1,566,904</td>
+    <td class="tg-0lax">57</td>
+    <td class="tg-0lax">11,087,510</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">雲林縣</td>
+    <td class="tg-0lax">581</td>
+    <td class="tg-0lax">34,423,195</td>
+    <td class="tg-0lax">9</td>
+    <td class="tg-0lax">29,111</td>
+    <td class="tg-0lax">222</td>
+    <td class="tg-0lax">35,303,541</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">嘉義縣</td>
+    <td class="tg-0lax">489</td>
+    <td class="tg-0lax">22,091,279</td>
+    <td class="tg-0lax">5</td>
+    <td class="tg-0lax">180,116</td>
+    <td class="tg-0lax">714</td>
+    <td class="tg-0lax">31,033,908</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">屏東縣</td>
+    <td class="tg-0lax">365</td>
+    <td class="tg-0lax">50,200,983</td>
+    <td class="tg-0lax">0</td>
+    <td class="tg-0lax">0</td>
+    <td class="tg-0lax">273</td>
+    <td class="tg-0lax">26,009,493</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">台東縣</td>
+    <td class="tg-0lax">55</td>
+    <td class="tg-0lax">6,134,778</td>
+    <td class="tg-0lax">9</td>
+    <td class="tg-0lax">357,905</td>
+    <td class="tg-0lax">93</td>
+    <td class="tg-0lax">10,542,742</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">花蓮縣</td>
+    <td class="tg-0lax">121</td>
+    <td class="tg-0lax">57,989,642</td>
+    <td class="tg-0lax">25</td>
+    <td class="tg-0lax">2,823,202</td>
+    <td class="tg-0lax">59</td>
+    <td class="tg-0lax">7,631,649</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">澎湖縣</td>
+    <td class="tg-0lax">85</td>
+    <td class="tg-0lax">9,003,124</td>
+    <td class="tg-0lax">6</td>
+    <td class="tg-0lax">19,313</td>
+    <td class="tg-0lax">89</td>
+    <td class="tg-0lax">3,500,698</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">基隆市</td>
+    <td class="tg-0lax">36</td>
+    <td class="tg-0lax">2,939,078</td>
+    <td class="tg-0lax">9</td>
+    <td class="tg-0lax">150,003</td>
+    <td class="tg-0lax">26</td>
+    <td class="tg-0lax">14,206,655</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">新竹市</td>
+    <td class="tg-0lax">19</td>
+    <td class="tg-0lax">7,202,979</td>
+    <td class="tg-0lax">4</td>
+    <td class="tg-0lax">13,918</td>
+    <td class="tg-0lax">14</td>
+    <td class="tg-0lax">13,488,719</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">嘉義市</td>
+    <td class="tg-0lax">12</td>
+    <td class="tg-0lax">1,454,796</td>
+    <td class="tg-0lax">4</td>
+    <td class="tg-0lax">98,654</td>
+    <td class="tg-0lax">88</td>
+    <td class="tg-0lax">10,971,623</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">金門縣</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">15,444</td>
+    <td class="tg-0lax">0</td>
+    <td class="tg-0lax">0</td>
+    <td class="tg-0lax">533</td>
+    <td class="tg-0lax">7,323,180</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">110</td>
+    <td class="tg-0lax">連江縣</td>
+    <td class="tg-0lax">153</td>
+    <td class="tg-0lax">2,362,323</td>
+    <td class="tg-0lax">41</td>
+    <td class="tg-0lax">173,628</td>
+    <td class="tg-0lax">13</td>
+    <td class="tg-0lax">130,187</td>
+  </tr>
+</tbody>
+</table>
+</body>
+</div>
+<div style="top:1px;left:900px;position:absolute;">
+  <canvas id="myChart" width="500" height="500 ">
+    var ctx = document.getElementById('myChart');
+    
+  </canvas>
+</div>
     </html>
