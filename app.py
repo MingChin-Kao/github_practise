@@ -1,21 +1,22 @@
 # main.py
- 
+import pandas as pd
 from flask import Flask, render_template
 app = Flask(__name__)
-
-print("hello")
 
 @app.route('/mingchin')
 def mingchin():
     return render_template('mingchin.html')
 
 
+df = pd.read_csv('data.csv')
+df.to_csv('data.csv', index=None)
 @app.route('/HongEn')
 def index():
-    return render_template('index.html')
+    data = pd.read_csv('data.csv')
+    return render_template('index.html', pie_chart=data)
 
 
-print("hello")
+
 
 @app.route('/ChiaHong')
 def ChiaHong():
