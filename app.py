@@ -22,3 +22,9 @@ def ChiaHong():
     return render_template('ChiaHong.html')
 
 print("hello")
+
+@app.route('/FeiJai')
+def FeiJai():
+    return render_template('FeiJai.html')
+
+print("hello")
