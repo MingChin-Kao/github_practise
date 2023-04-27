@@ -1,7 +1,9 @@
 <html>
   <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ url_for('static',    filename='/template.css') }}">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='/template.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',    filename='/index.js') }}">
   </head>
   <body><div class="area"></div><nav class="main-menu">
             <ul>
@@ -95,4 +97,86 @@
             </ul>
         </nav>
   </body>
+
+
+    
+  </div>
+  <!-- <html lang="zh-Hant"> -->
+  <style type="text/css">
+        .tg  {border-collapse:collapse;border-color:#aaa;border-spacing:0;}
+        .tg td{background-color:#fff;border-color:#aaa;border-style:solid;border-width:0px;color:#333;
+          font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{background-color:#f38630;border-color:#aaa;border-style:solid;border-width:0px;color:#fff;
+          font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+    <div style="top:1px;left:300px;position:absolute;">
+    <table class="tg">
+        <thead>
+            <tr>
+            {% for j in col  %}
+                <th>
+                {% for i in j %}
+                    {{ i }}
+                {% endfor %}
+                </th>
+            {% endfor %}
+            </tr>
+          </thead>
+
+
+        <tbody>
+        
+            {% for row in rows %}
+            <tr>
+                {% for col in rows[row] %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+                
+    </div>
+    </table>
+    
+    <div style="top:1px;left:650px;position:absolute;">
+        <canvas id="myChart" width="500" height="500"></canvas>
+        <script>
+        var ctx = document.getElementById("myChart");
+        var rows ={{chart_label|tojson}};
+        var data_chart ={{data_chart}};
+        var chart = new Chart(ctx, {
+          type: "pie", // 圖表類型
+          data: {
+            labels: rows, //顯示區間名稱
+            datasets: [
+              {
+                label: "標籤名稱", // tootip 出現的名稱
+                data: data_chart, // 資料
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.2)", // 第一個 bar 顏色
+                  "rgba(54, 162, 235, 0.2)", // 第二個 bar 顏色
+                  "rgba(255, 206, 86, 0.2)", // 第三個 bar 顏色
+                  "rgba(75, 192, 192, 0.2)", // 第四個 bar 顏色
+                  "rgba(153, 102, 255, 0.2)", // 第五個 bar 顏色
+                  "rgba(255, 159, 64, 0.2)" // 第六個 bar 顏色
+                ],
+                borderColor: [
+                  "rgba(255,99,132,1)", // 第一個 bar 外框線顏色
+                  "rgba(54, 162, 235, 1)", // 第二個 bar 外框線顏色
+                  "rgba(255, 206, 86, 1)", // 第三個 bar 外框線顏色
+                  "rgba(75, 192, 192, 1)", // 第四個 bar 外框線顏色
+                  "rgba(153, 102, 255, 1)", // 第五個 bar 外框線顏色
+                  "rgba(255, 159, 64, 1)" // 第六個 bar 外框線顏色
+                ],
+                borderWidth: 1 // 外框線寬度
+              }
+            ]
+          }
+        });
+        </script>
+    </div>
+    
+      
+
     </html>
