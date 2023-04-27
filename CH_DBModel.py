@@ -1,14 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 
-# 給定資料庫的必要資訊字典
-POSTGRES = {
-    'user': 'postgres',
-    'password': 'n96111451',
-    'db': 'TestDBforCase',
-    'host': 'localhost',
-    'port': 5432,
-}
-
 # 資料庫相關模型定義
 db = SQLAlchemy()
 

@@ -1,6 +1,7 @@
 # main.py
 from flask import Flask, render_template
-from CH_DBModel import db, TestTable , POSTGRES # 引入資料庫相關的東西，已經打包成一個 py 檔案
+from CH_DBModel import db, TestTable # 引入資料庫相關的東西，已經打包成一個 py 檔案
+from CH_DBRequiredInformation import POSTGRES
 from CH_queryDB import queryDB
 from CH_insertDB import write_random_data
 
@@ -23,7 +24,7 @@ def ChiaHong():
 
 # 設定資料庫相關的連線內容
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
-%(password)s@%(host)s:%(port)s/%(db)s' % POSTGRES
+%(password)s@%(host)s:%(port)s/%(database)s' % POSTGRES
 
 # 初始化資料庫模型
 db.init_app(app)
@@ -37,8 +38,16 @@ def query_db():
 
 @app.route('/db_insert')
 def db_insert():
-    lastIdx = queryDB(TestTable)[-1].idx
-    write_random_data('static/data.csv', db, lastIdx)
+    # 資料表為空的話取 idx 會報錯，因此直接給 0
+    try:
+        lastIdx = queryDB(TestTable)[-1].idx
+    except:
+        lastIdx = 0
+
+    # 防呆，其實可以不用
+    if lastIdx is not None:
+        write_random_data('static/data.csv', db, lastIdx)
+
     return 'ok'
 
 print("hello")
