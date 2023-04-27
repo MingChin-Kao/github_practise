@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TestTable</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='queryPage.css') }}">
+  </head>
+  <body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>年度</th>
+                    <th>縣市別</th>
+                    <th>包制戶數</th>
+                    <th>包制售電量</th>
+                    <th>表制戶數</th>
+                    <th>表制售電量</th>
+                    <th>LED戶數</th>
+                    <th>LED售電量</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+                {% for row in rows %}
+                    <tr>
+                    <td class="center">{{ row.idx }}</td>
+                    <td class="center">{{ row.year }}</td>
+                    <td class="center">{{ row.city }}</td>
+                    <td class="center">{{ row.HouseholdsOfTypeA }}</td>
+                    <td class="center">{{ row.ElecSalesOfTypeA }}</td>
+                    <td class="center">{{ row.HouseholdsOfTypeB }}</td>
+                    <td class="center">{{ row.ElecSalesOfTypeB }}</td>
+                    <td class="center">{{ row.HouseholdsOfLED }}</td>
+                    <td class="center">{{ row.ElecSalesOfLED }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </body>
+</html>
